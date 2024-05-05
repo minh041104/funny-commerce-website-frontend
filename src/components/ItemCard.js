@@ -1,3 +1,13 @@
+/*
+  Usage:
+   <ItemCard
+        imageSrc={<image_file>}
+        itemName={<name>}
+        itemType={<type>}
+        price={<price>}
+      ></ItemCard>
+
+ */
 import Image from "next/image";
 
 const ItemCard = ({imageSrc, itemName, itemType, price}) => {
