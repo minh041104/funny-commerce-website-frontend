@@ -6,10 +6,14 @@ const RegisterPage = () => {
       height: '100vh',
       padding: 0,
       margin: 0,
+      display: 'flex',
+      flexWrap: 'wrap',
+      flexDirection: 'column',
+      justifyContent: 'center'
     }}>
-      {/*<div style={BoxStyle}>*/}
-      {/*  <SignUpForm></SignUpForm>*/}
-      {/*</div>*/}
+      <div style={BoxStyle}>
+        <SignUpForm></SignUpForm>
+      </div>
     </div>
   );
 }
@@ -17,7 +21,7 @@ const RegisterPage = () => {
 const BoxStyle = {
   display: 'flex',
   flexWrap: 'wrap',
-
+  justifyContent: 'center',
 }
 
 export default RegisterPage;

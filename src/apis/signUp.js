@@ -16,7 +16,7 @@ const SignUpFormSchema = z.object({
   .trim(),
 })
 
-const signUp = (state, formData) => {
+const signUp = async (state, formData) => {
   const validatedFields = SignUpFormSchema.safeParse({
     name: formData.get('name'),
     password: formData.get('password')
