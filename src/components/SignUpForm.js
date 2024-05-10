@@ -2,7 +2,7 @@
 
 import {useFormState} from 'react-dom'
 
-import LoginInput from "@/components/LoginInput";
+import FormInput from "@/components/FormInput";
 import signUp from "@/apis/signUp";
 
 const SignUpForm = () => {
@@ -10,12 +10,12 @@ const SignUpForm = () => {
 
   return (
     <form style={FormStyle} action={action}>
-      <LoginInput name={"name"} placeholder={"USERNAME"}>
-      </LoginInput>
-      <LoginInput name={"password"} placeholder={"PASSWORD"} type={"password"}>
-      </LoginInput>
-      <LoginInput name={"confirmPassword"} placeholder={"CONFIRM PASSWORD"} type={"password"}>
-      </LoginInput>
+      <FormInput name={"name"} placeholder={"USERNAME"}>
+      </FormInput>
+      <FormInput name={"password"} placeholder={"PASSWORD"} type={"password"}>
+      </FormInput>
+      <FormInput name={"confirmPassword"} placeholder={"CONFIRM PASSWORD"} type={"password"}>
+      </FormInput>
       <button style={ButtonStyle} type="submit">Sign Up</button>
       {state && state.fieldErrors && state.fieldErrors.name && (
         <div style={{

@@ -2,7 +2,7 @@ import {Montserrat} from "next/font/google";
 
 const montserrat = Montserrat({subsets: ['latin']})
 
-const LoginInput = ({name, type, placeholder}) => {
+const FormInput = ({name, type, placeholder}) => {
   return (
     <div style={PlaceHolderStyle}>
       <input style={InputStyle} name={name} type={type} placeholder={placeholder}/>
@@ -29,4 +29,4 @@ const InputStyle = {
   border: 'none',
   outline: 'none'
 }
-export default LoginInput;
+export default FormInput;
