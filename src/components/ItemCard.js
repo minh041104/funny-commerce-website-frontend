@@ -8,7 +8,6 @@
       ></ItemCard>
 
  */
-import Image from "next/image";
 
 const ItemCard = ({imageSrc, itemName, itemType, price}) => {
   return <div style={CardStyle}>

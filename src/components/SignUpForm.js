@@ -1,6 +1,8 @@
 'use client'
 
 import {useFormState} from 'react-dom'
+
+import LoginInput from "@/components/LoginInput";
 import signUp from "@/apis/signUp";
 
 const SignUpForm = () => {
@@ -8,14 +10,14 @@ const SignUpForm = () => {
 
   return (
     <form style={FormStyle} action={action}>
-      <div style={PlaceHolderStyle}>
-        <input style={InputStyle} id="name" name="name" placeholder="USERNAME"/>
-      </div>
-      <div style={PlaceHolderStyle}>
-        <input style={InputStyle} id="password" name="password" type="password" placeholder="PASSWORD"/>
-      </div>
+      <LoginInput name={"name"} placeholder={"USERNAME"}>
+      </LoginInput>
+      <LoginInput name={"password"} placeholder={"PASSWORD"} type={"password"}>
+      </LoginInput>
+      <LoginInput name={"confirmPassword"} placeholder={"CONFIRM PASSWORD"} type={"password"}>
+      </LoginInput>
       <button style={ButtonStyle} type="submit">Sign Up</button>
-      {state && state.errors && state.errors.name && (
+      {state && state.fieldErrors && state.fieldErrors.name && (
         <div style={{
           padding: 0,
           margin: 0,
@@ -27,7 +29,7 @@ const SignUpForm = () => {
           <ul style={{
             margin: 0,
           }}>
-            {state.errors.name.map((error) => (
+            {state.fieldErrors.name.map((error) => (
               <li style={{
                 padding: 0,
                 margin: 0,
@@ -36,7 +38,7 @@ const SignUpForm = () => {
           </ul>
         </div>
       )}
-      {state && state.errors && state.errors.password && (
+      {state && state.fieldErrors && state.fieldErrors.password && (
         <div style={{
           padding: 0,
           margin: 0,
@@ -48,12 +50,26 @@ const SignUpForm = () => {
           <ul style={{
             margin: 0,
           }}>
-            {state.errors.password.map((error) => (
+            {state.fieldErrors.password.map((error) => (
               <li key={error}>{error}</li>
             ))}
           </ul>
         </div>
       )}
+      {state && state.formErrors && (
+        <div style={{
+          padding: 0,
+          margin: 0,
+        }}>
+          <p style={{
+            padding: 0,
+            margin: 0,
+          }}>
+            {state.formErrors}
+          </p>
+        </div>
+      )}
+
     </form>
   )
 }
@@ -62,24 +78,6 @@ const FormStyle = {
   display: 'flex',
   flexDirection: 'column',
   gap: '0.5rem'
-}
-const PlaceHolderStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  width: '18.75rem',
-  height: '2.8125rem',
-  borderWidth: '1px',
-  borderRadius: '0.25rem',
-  borderStyle: 'solid',
-
-}
-const InputStyle = {
-  fontSize: '1rem',
-  fontFamily: 'Montserrat',
-  background: 'transparent',
-  border: 'none',
-  outline: 'none'
 }
 const ButtonStyle = {
   display: 'flex',
