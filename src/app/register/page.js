@@ -7,9 +7,9 @@ const RegisterPage = () => {
       padding: 0,
       margin: 0,
     }}>
-      {/*<div style={BoxStyle}>*/}
-      {/*  <SignUpForm></SignUpForm>*/}
-      {/*</div>*/}
+      <div style={BoxStyle}>
+       <SignUpForm></SignUpForm>
+      </div>
     </div>
   );
 }
